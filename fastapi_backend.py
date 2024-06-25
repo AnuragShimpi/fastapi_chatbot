@@ -40,9 +40,9 @@ class QueryRequest(BaseModel):
 async def search_query(query_request: QueryRequest):
     query = query_request.query
 
-    os.environ['cohere_api_key'] = "PKYJ9mWpadwNW8Oj44ftpOr6rKzBkzW6eT2iZhaC"
-    os.environ['OPENWEATHERMAP_API_KEY'] = "ccb2a2627f1646603dbc9721e03990dc"
-    os.environ['serpapi_api_key'] = "73ce724cbce1469407bd4191a7b7c54aba5366019305d9f0f05f61791404f023"
+    COHERE_API_KEY = os.environ.get('cohere_api_key')
+    SERP_API_KEY = os.environ.get("SERPAPI_API_KEY")
+    OPENWEATHERMAP_API_KEY = os.environ.get("OPENWEATHERMAP_API_KEY")
 
     custom_prompt = (
     "You are a knowledgeable assistant. When asked about any topic, provide a detailed and comprehensive response. "

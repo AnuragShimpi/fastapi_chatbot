@@ -18,11 +18,8 @@ from langchain_community.utilities import SerpAPIWrapper
 
 def check_weather(query: str):
 
-    #api_cohere_key = 'BQtxZX9TZtECoTzDFkUZCwU4wu5WozhvrPtaBaxM'
-    #api_weather = "6a06eace0b866351ea8fdd0401993aae"
-
-    os.environ['COHERE_API_KEY'] = 'PKYJ9mWpadwNW8Oj44ftpOr6rKzBkzW6eT2iZhaC'
-    os.environ["OPENWEATHERMAP_API_KEY"] = "6a06eace0b866351ea8fdd0401993aae"
+    COHERE_API_KEY = os.environ.get('cohere_api_key')
+    OPENWEATHERMAP_API_KEY = os.environ.get("OPENWEATHERMAP_API_KEY")
 
 
     llm = ChatCohere(model = 'command-r-plus' , temperature=0)
@@ -39,8 +36,8 @@ def check_weather(query: str):
 
 def search_query(query : str):
 
-    os.environ['COHERE_API_KEY'] = 'BQtxZX9TZtECoTzDFkUZCwU4wu5WozhvrPtaBaxM'
-    os.environ['SERPAPI_API_KEY'] = 'df69a05dca9849165cb10df886f7a238d110ae22c97d2fb582390e78e2b57f1f'
+    COHERE_API_KEY = os.environ.get('COHERE_API_KEY')
+    SERP_API_KEY = os.environ.get("SERPAPI_API_KEY")
 
     custom_prompt = (
     "You are a knowledgeable assistant. When asked about any topic, provide a detailed and comprehensive response. "
